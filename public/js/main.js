@@ -22,7 +22,10 @@
         // keep cells up todate with changes
         $('#example').on('blur', 'input', function () {
             var cell = table.cell(this.parentElement);
-            cell.data(this.value).draw();
+
+            var pg = table.page();
+            cell.data(this.value);
+            return true;
         });
 
         $('#update').click( function() {
