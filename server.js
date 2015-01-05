@@ -1,5 +1,6 @@
 var express = require('express'),
-    DataRequestHandler = require(__dirname + '/lib/dataRequestHandler.js');
+    DataRequestHandler = require(__dirname + '/lib/dataRequestHandler.js'),
+    UploadHandler = require(__dirname + '/lib/uploadHandler.js');
 
 var port = 3000;
 
@@ -13,6 +14,7 @@ app.get('/', function(req, res) {
 app.use('/', express.static(__dirname + '/public'));
 
 var dataRequestHandler = new DataRequestHandler(app);
+var uploadHandler = new UploadHandler(app);
 
 app.listen(port);
 console.log('listening on port ' + port);
